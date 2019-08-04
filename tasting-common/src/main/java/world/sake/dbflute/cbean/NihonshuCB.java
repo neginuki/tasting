@@ -13,20 +13,17 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package world.sake.dbflute.exentity;
+package world.sake.dbflute.cbean;
 
-import world.sake.dbflute.bsentity.BsSample;
+import world.sake.dbflute.cbean.bs.BsNihonshuCB;
 
 /**
- * The entity of SAMPLE.
+ * The condition-bean of NIHONSHU.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class Sample extends BsSample {
-
-    /** The serial version UID for object serialization. (Default) */
-    private static final long serialVersionUID = 1L;
+public class NihonshuCB extends BsNihonshuCB {
 }

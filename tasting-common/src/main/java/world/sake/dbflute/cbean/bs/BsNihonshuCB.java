@@ -45,24 +45,24 @@ import world.sake.dbflute.allcommon.DBFluteConfig;
 import world.sake.dbflute.allcommon.DBMetaInstanceHandler;
 import world.sake.dbflute.allcommon.ImplementedInvokerAssistant;
 import world.sake.dbflute.allcommon.ImplementedSqlClauseCreator;
-import world.sake.dbflute.cbean.SampleCB;
-import world.sake.dbflute.cbean.cq.SampleCQ;
+import world.sake.dbflute.cbean.NihonshuCB;
+import world.sake.dbflute.cbean.cq.NihonshuCQ;
 
 /**
- * The base condition-bean of sample.
+ * The base condition-bean of nihonshu.
  * @author DBFlute(AutoGenerator)
  */
-public class BsSampleCB extends AbstractConditionBean {
+public class BsNihonshuCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected SampleCQ _conditionQuery;
+    protected NihonshuCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsSampleCB() {
+    public BsNihonshuCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -105,7 +105,7 @@ public class BsSampleCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "sample";
+        return "nihonshu";
     }
 
     // ===================================================================================
@@ -113,23 +113,23 @@ public class BsSampleCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param sampleId (サンプルID): PK, ID, NotNull, BIGINT(19). (NotNull)
+     * @param nihonshuId (日本酒ID): PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
-    public SampleCB acceptPK(Long sampleId) {
-        assertObjectNotNull("sampleId", sampleId);
-        BsSampleCB cb = this;
-        cb.query().setSampleId_Equal(sampleId);
-        return (SampleCB) this;
+    public NihonshuCB acceptPK(Long nihonshuId) {
+        assertObjectNotNull("nihonshuId", nihonshuId);
+        BsNihonshuCB cb = this;
+        cb.query().setNihonshuId_Equal(nihonshuId);
+        return (NihonshuCB) this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_SampleId_Asc();
+        query().addOrderBy_NihonshuId_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_SampleId_Desc();
+        query().addOrderBy_NihonshuId_Desc();
         return this;
     }
 
@@ -193,34 +193,34 @@ public class BsSampleCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public SampleCQ query() {
+    public NihonshuCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public SampleCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public NihonshuCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected SampleCQ doGetConditionQuery() {
+    protected NihonshuCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected SampleCQ createLocalCQ() {
+    protected NihonshuCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected SampleCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        SampleCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected NihonshuCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        NihonshuCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected SampleCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new SampleCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected NihonshuCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new NihonshuCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -244,8 +244,8 @@ public class BsSampleCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<SampleCB> unionCBLambda) {
-        final SampleCB cb = new SampleCB();
+    public void union(UnionQuery<NihonshuCB> unionCBLambda) {
+        final NihonshuCB cb = new NihonshuCB();
         cb.xsetupForUnion(this);
         xsyncUQ(cb);
         try {
@@ -255,7 +255,7 @@ public class BsSampleCB extends AbstractConditionBean {
             unlock();
         }
         xsaveUCB(cb);
-        final SampleCQ cq = cb.query();
+        final NihonshuCQ cq = cb.query();
         query().xsetUnionQuery(cq);
     }
 
@@ -270,8 +270,8 @@ public class BsSampleCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<SampleCB> unionCBLambda) {
-        final SampleCB cb = new SampleCB();
+    public void unionAll(UnionQuery<NihonshuCB> unionCBLambda) {
+        final NihonshuCB cb = new NihonshuCB();
         cb.xsetupForUnion(this);
         xsyncUQ(cb);
         try {
@@ -281,7 +281,7 @@ public class BsSampleCB extends AbstractConditionBean {
             unlock();
         }
         xsaveUCB(cb);
-        final SampleCQ cq = cb.query();
+        final NihonshuCQ cq = cb.query();
         query().xsetUnionAllQuery(cq);
     }
 
@@ -329,18 +329,26 @@ public class BsSampleCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<SampleCQ> {
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<SampleCQ> qyCall, HpCBPurpose purpose, DBMetaProvider dbmetaProvider,
+    public static class HpSpecification extends HpAbstractSpecification<NihonshuCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<NihonshuCQ> qyCall, HpCBPurpose purpose, DBMetaProvider dbmetaProvider,
                 HpSDRFunctionFactory sdrFuncFactory) {
             super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory);
         }
 
         /**
-         * (サンプルID)SAMPLE_ID: {PK, ID, NotNull, BIGINT(19)}
+         * (日本酒ID)NIHONSHU_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnSampleId() {
-            return doColumn("SAMPLE_ID");
+        public SpecifiedColumn columnNihonshuId() {
+            return doColumn("NIHONSHU_ID");
+        }
+
+        /**
+         * (日本酒名)NIHONSHU_NAME: {NotNull, VARCHAR(255)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnNihonshuName() {
+            return doColumn("NIHONSHU_NAME");
         }
 
         public void everyColumn() {
@@ -353,25 +361,25 @@ public class BsSampleCB extends AbstractConditionBean {
 
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnSampleId(); // PK
+            columnNihonshuId(); // PK
         }
 
         @Override
         protected String getTableDbName() {
-            return "sample";
+            return "nihonshu";
         }
 
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<SampleCB, SampleCQ> myselfDerived() {
+        public HpSDRFunction<NihonshuCB, NihonshuCQ> myselfDerived() {
             assertDerived("myselfDerived");
             if (xhasSyncQyCall()) {
                 xsyncQyCall().qy();
             } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<SampleCB> sq, SampleCQ cq, String al, DerivedReferrerOption op) -> cq
-                    .xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<NihonshuCB> sq, NihonshuCQ cq, String al,
+                    DerivedReferrerOption op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 
@@ -383,9 +391,9 @@ public class BsSampleCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public SampleCB dreamCruiseCB() {
-        SampleCB cb = new SampleCB();
-        cb.xsetupForDreamCruise((SampleCB) this);
+    public NihonshuCB dreamCruiseCB() {
+        NihonshuCB cb = new NihonshuCB();
+        cb.xsetupForDreamCruise((NihonshuCB) this);
         return cb;
     }
 
@@ -410,15 +418,15 @@ public class BsSampleCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<SampleCB> columnQuery(final SpecifyQuery<SampleCB> colCBLambda) {
+    public HpColQyOperand<NihonshuCB> columnQuery(final SpecifyQuery<NihonshuCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected SampleCB xcreateColumnQueryCB() {
-        SampleCB cb = new SampleCB();
-        cb.xsetupForColumnQuery((SampleCB) this);
+    protected NihonshuCB xcreateColumnQueryCB() {
+        NihonshuCB cb = new NihonshuCB();
+        cb.xsetupForColumnQuery((NihonshuCB) this);
         return cb;
     }
 
@@ -438,8 +446,8 @@ public class BsSampleCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<SampleCB> orCBLambda) {
-        xorSQ((SampleCB) this, orCBLambda);
+    public void orScopeQuery(OrQuery<NihonshuCB> orCBLambda) {
+        xorSQ((NihonshuCB) this, orCBLambda);
     }
 
     /**
@@ -457,8 +465,8 @@ public class BsSampleCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<SampleCB> andCBLambda) {
-        xorSQAP((SampleCB) this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<NihonshuCB> andCBLambda) {
+        xorSQAP((NihonshuCB) this, andCBLambda);
     }
 
     // ===================================================================================
@@ -508,11 +516,11 @@ public class BsSampleCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final SampleCB cb;
+        final NihonshuCB cb;
         if (mainCB != null) {
-            cb = (SampleCB) mainCB;
+            cb = (NihonshuCB) mainCB;
         } else {
-            cb = new SampleCB();
+            cb = new NihonshuCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -522,11 +530,11 @@ public class BsSampleCB extends AbstractConditionBean {
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xgetConditionBeanClassNameInternally() {
-        return SampleCB.class.getName();
+        return NihonshuCB.class.getName();
     }
 
     protected String xgetConditionQueryClassNameInternally() {
-        return SampleCQ.class.getName();
+        return NihonshuCQ.class.getName();
     }
 
     protected String xgetSubQueryClassNameInternally() {

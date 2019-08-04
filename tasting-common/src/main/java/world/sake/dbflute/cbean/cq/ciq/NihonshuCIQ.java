@@ -27,21 +27,21 @@ import world.sake.dbflute.cbean.cq.bs.*;
 import world.sake.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of sample.
+ * The condition-query for in-line of nihonshu.
  * @author DBFlute(AutoGenerator)
  */
-public class SampleCIQ extends AbstractBsSampleCQ {
+public class NihonshuCIQ extends AbstractBsNihonshuCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsSampleCQ _myCQ;
+    protected BsNihonshuCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public SampleCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsSampleCQ myCQ) {
+    public NihonshuCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsNihonshuCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -76,17 +76,18 @@ public class SampleCIQ extends AbstractBsSampleCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueSampleId() { return _myCQ.xdfgetSampleId(); }
+    protected ConditionValue xgetCValueNihonshuId() { return _myCQ.xdfgetNihonshuId(); }
+    protected ConditionValue xgetCValueNihonshuName() { return _myCQ.xdfgetNihonshuName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(SampleCQ sq)
+    public String keepScalarCondition(NihonshuCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(SampleCQ sq)
+    public String keepSpecifyMyselfDerived(NihonshuCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(SampleCQ sq)
+    public String keepQueryMyselfDerived(NihonshuCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(SampleCQ sq)
+    public String keepMyselfExists(NihonshuCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -96,6 +97,6 @@ public class SampleCIQ extends AbstractBsSampleCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return SampleCB.class.getName(); }
-    protected String xinCQ() { return SampleCQ.class.getName(); }
+    protected String xinCB() { return NihonshuCB.class.getName(); }
+    protected String xinCQ() { return NihonshuCQ.class.getName(); }
 }

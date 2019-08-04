@@ -13,17 +13,20 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package world.sake.dbflute.exbhv;
+package world.sake.dbflute.exentity;
 
-import world.sake.dbflute.bsbhv.BsSampleBhv;
+import world.sake.dbflute.bsentity.BsNihonshu;
 
 /**
- * The behavior of SAMPLE.
+ * The entity of NIHONSHU.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class SampleBhv extends BsSampleBhv {
+public class Nihonshu extends BsNihonshu {
+
+    /** The serial version UID for object serialization. (Default) */
+    private static final long serialVersionUID = 1L;
 }

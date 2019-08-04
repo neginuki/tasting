@@ -28,17 +28,17 @@ import world.sake.dbflute.allcommon.*;
 import world.sake.dbflute.exentity.*;
 
 /**
- * The DB meta of sample. (Singleton)
+ * The DB meta of nihonshu. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class SampleDbm extends AbstractDBMeta {
+public class NihonshuDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final SampleDbm _instance = new SampleDbm();
-    private SampleDbm() {}
-    public static SampleDbm getInstance() { return _instance; }
+    private static final NihonshuDbm _instance = new NihonshuDbm();
+    private NihonshuDbm() {}
+    public static NihonshuDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -57,7 +57,8 @@ public class SampleDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((Sample)et).getSampleId(), (et, vl) -> ((Sample)et).setSampleId(ctl(vl)), "sampleId");
+        setupEpg(_epgMap, et -> ((Nihonshu)et).getNihonshuId(), (et, vl) -> ((Nihonshu)et).setNihonshuId(ctl(vl)), "nihonshuId");
+        setupEpg(_epgMap, et -> ((Nihonshu)et).getNihonshuName(), (et, vl) -> ((Nihonshu)et).setNihonshuName((String)vl), "nihonshuName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -65,32 +66,39 @@ public class SampleDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "sample";
-    protected final String _tableDispName = "SAMPLE";
-    protected final String _tablePropertyName = "sample";
-    protected final TableSqlName _tableSqlName = new TableSqlName("SAMPLE", _tableDbName);
+    protected final String _tableDbName = "nihonshu";
+    protected final String _tableDispName = "NIHONSHU";
+    protected final String _tablePropertyName = "nihonshu";
+    protected final TableSqlName _tableSqlName = new TableSqlName("NIHONSHU", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
-    protected final String _tableAlias = "サンプル";
+    protected final String _tableAlias = "日本酒";
     public String getTableAlias() { return _tableAlias; }
 
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSampleId = cci("SAMPLE_ID", "SAMPLE_ID", null, "サンプルID", Long.class, "sampleId", null, true, true, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNihonshuId = cci("NIHONSHU_ID", "NIHONSHU_ID", null, "日本酒ID", Long.class, "nihonshuId", null, true, true, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNihonshuName = cci("NIHONSHU_NAME", "NIHONSHU_NAME", null, "日本酒名", String.class, "nihonshuName", null, false, false, true, "VARCHAR", 255, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * (サンプルID)SAMPLE_ID: {PK, ID, NotNull, BIGINT(19)}
+     * (日本酒ID)NIHONSHU_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnSampleId() { return _columnSampleId; }
+    public ColumnInfo columnNihonshuId() { return _columnNihonshuId; }
+    /**
+     * (日本酒名)NIHONSHU_NAME: {NotNull, VARCHAR(255)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnNihonshuName() { return _columnNihonshuName; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnSampleId());
+        ls.add(columnNihonshuId());
+        ls.add(columnNihonshuName());
         return ls;
     }
 
@@ -102,7 +110,7 @@ public class SampleDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnSampleId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnNihonshuId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
@@ -127,27 +135,27 @@ public class SampleDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "world.sake.dbflute.exentity.Sample"; }
-    public String getConditionBeanTypeName() { return "world.sake.dbflute.cbean.SampleCB"; }
-    public String getBehaviorTypeName() { return "world.sake.dbflute.exbhv.SampleBhv"; }
+    public String getEntityTypeName() { return "world.sake.dbflute.exentity.Nihonshu"; }
+    public String getConditionBeanTypeName() { return "world.sake.dbflute.cbean.NihonshuCB"; }
+    public String getBehaviorTypeName() { return "world.sake.dbflute.exbhv.NihonshuBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<Sample> getEntityType() { return Sample.class; }
+    public Class<Nihonshu> getEntityType() { return Nihonshu.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public Sample newEntity() { return new Sample(); }
+    public Nihonshu newEntity() { return new Nihonshu(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((Sample)et, mp); }
+    { doAcceptPrimaryKeyMap((Nihonshu)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((Sample)et, mp); }
+    { doAcceptAllColumnMap((Nihonshu)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

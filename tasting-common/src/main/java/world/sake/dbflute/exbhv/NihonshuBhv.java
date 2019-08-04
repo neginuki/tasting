@@ -13,17 +13,17 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package world.sake.dbflute.cbean;
+package world.sake.dbflute.exbhv;
 
-import world.sake.dbflute.cbean.bs.BsSampleCB;
+import world.sake.dbflute.bsbhv.BsNihonshuBhv;
 
 /**
- * The condition-bean of SAMPLE.
+ * The behavior of NIHONSHU.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class SampleCB extends BsSampleCB {
+public class NihonshuBhv extends BsNihonshuBhv {
 }

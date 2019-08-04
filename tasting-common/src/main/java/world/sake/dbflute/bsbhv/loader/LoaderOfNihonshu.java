@@ -22,19 +22,19 @@ import world.sake.dbflute.exbhv.*;
 import world.sake.dbflute.exentity.*;
 
 /**
- * The referrer loader of (サンプル)SAMPLE as TABLE. <br>
+ * The referrer loader of (日本酒)NIHONSHU as TABLE. <br>
  * <pre>
  * [primary key]
- *     SAMPLE_ID
+ *     NIHONSHU_ID
  *
  * [column]
- *     SAMPLE_ID
+ *     NIHONSHU_ID, NIHONSHU_NAME
  *
  * [sequence]
  *     
  *
  * [identity]
- *     SAMPLE_ID
+ *     NIHONSHU_ID
  *
  * [version-no]
  *     
@@ -53,23 +53,23 @@ import world.sake.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public class LoaderOfSample {
+public class LoaderOfNihonshu {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected List<Sample> _selectedList;
+    protected List<Nihonshu> _selectedList;
     protected BehaviorSelector _selector;
-    protected SampleBhv _myBhv; // lazy-loaded
+    protected NihonshuBhv _myBhv; // lazy-loaded
 
     // ===================================================================================
     //                                                                   Ready for Loading
     //                                                                   =================
-    public LoaderOfSample ready(List<Sample> selectedList, BehaviorSelector selector)
+    public LoaderOfNihonshu ready(List<Nihonshu> selectedList, BehaviorSelector selector)
     { _selectedList = selectedList; _selector = selector; return this; }
 
-    protected SampleBhv myBhv()
-    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(SampleBhv.class); return _myBhv; } }
+    protected NihonshuBhv myBhv()
+    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(NihonshuBhv.class); return _myBhv; } }
 
     // ===================================================================================
     //                                                                    Pull out Foreign
@@ -77,6 +77,6 @@ public class LoaderOfSample {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public List<Sample> getSelectedList() { return _selectedList; }
+    public List<Nihonshu> getSelectedList() { return _selectedList; }
     public BehaviorSelector getSelector() { return _selector; }
 }

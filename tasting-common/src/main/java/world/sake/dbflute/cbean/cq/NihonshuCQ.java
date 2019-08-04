@@ -17,17 +17,17 @@ package world.sake.dbflute.cbean.cq;
 
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.sqlclause.SqlClause;
-import world.sake.dbflute.cbean.cq.bs.BsSampleCQ;
+import world.sake.dbflute.cbean.cq.bs.BsNihonshuCQ;
 
 /**
- * The condition-query of SAMPLE.
+ * The condition-query of NIHONSHU.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class SampleCQ extends BsSampleCQ {
+public class NihonshuCQ extends BsNihonshuCQ {
 
     // ===================================================================================
     //                                                                         Constructor
@@ -40,7 +40,7 @@ public class SampleCQ extends BsSampleCQ {
      * @param aliasName The alias name for this query. (NotNull)
      * @param nestLevel The nest level of this query. (if zero, this is base query)
      */
-    public SampleCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public NihonshuCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 

@@ -25,19 +25,19 @@ import world.sake.dbflute.allcommon.DBMetaInstanceHandler;
 import world.sake.dbflute.exentity.*;
 
 /**
- * The entity of (サンプル)SAMPLE as TABLE. <br>
+ * The entity of (日本酒)NIHONSHU as TABLE. <br>
  * <pre>
  * [primary-key]
- *     SAMPLE_ID
+ *     NIHONSHU_ID
  *
  * [column]
- *     SAMPLE_ID
+ *     NIHONSHU_ID, NIHONSHU_NAME
  *
  * [sequence]
  *     
  *
  * [identity]
- *     SAMPLE_ID
+ *     NIHONSHU_ID
  *
  * [version-no]
  *     
@@ -56,13 +56,15 @@ import world.sake.dbflute.exentity.*;
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long sampleId = entity.getSampleId();
- * entity.setSampleId(sampleId);
+ * Long nihonshuId = entity.getNihonshuId();
+ * String nihonshuName = entity.getNihonshuName();
+ * entity.setNihonshuId(nihonshuId);
+ * entity.setNihonshuName(nihonshuName);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSample extends AbstractEntity implements DomainEntity {
+public abstract class BsNihonshu extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -73,8 +75,11 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (サンプルID)SAMPLE_ID: {PK, ID, NotNull, BIGINT(19)} */
-    protected Long _sampleId;
+    /** (日本酒ID)NIHONSHU_ID: {PK, ID, NotNull, BIGINT(19)} */
+    protected Long _nihonshuId;
+
+    /** (日本酒名)NIHONSHU_NAME: {NotNull, VARCHAR(255)} */
+    protected String _nihonshuName;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -86,7 +91,7 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "sample";
+        return "nihonshu";
     }
 
     // ===================================================================================
@@ -94,7 +99,7 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        if (_sampleId == null) { return false; }
+        if (_nihonshuId == null) { return false; }
         return true;
     }
 
@@ -113,9 +118,9 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsSample) {
-            BsSample other = (BsSample)obj;
-            if (!xSV(_sampleId, other._sampleId)) { return false; }
+        if (obj instanceof BsNihonshu) {
+            BsNihonshu other = (BsNihonshu)obj;
+            if (!xSV(_nihonshuId, other._nihonshuId)) { return false; }
             return true;
         } else {
             return false;
@@ -126,7 +131,7 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     protected int doHashCode(int initial) {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
-        hs = xCH(hs, _sampleId);
+        hs = xCH(hs, _nihonshuId);
         return hs;
     }
 
@@ -138,7 +143,8 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(xfND(_sampleId));
+        sb.append(dm).append(xfND(_nihonshuId));
+        sb.append(dm).append(xfND(_nihonshuName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -152,28 +158,46 @@ public abstract class BsSample extends AbstractEntity implements DomainEntity {
     }
 
     @Override
-    public Sample clone() {
-        return (Sample)super.clone();
+    public Nihonshu clone() {
+        return (Nihonshu)super.clone();
     }
 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (サンプルID)SAMPLE_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * @return The value of the column 'SAMPLE_ID'. (basically NotNull if selected: for the constraint)
+     * [get] (日本酒ID)NIHONSHU_ID: {PK, ID, NotNull, BIGINT(19)} <br>
+     * @return The value of the column 'NIHONSHU_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getSampleId() {
-        checkSpecifiedProperty("sampleId");
-        return _sampleId;
+    public Long getNihonshuId() {
+        checkSpecifiedProperty("nihonshuId");
+        return _nihonshuId;
     }
 
     /**
-     * [set] (サンプルID)SAMPLE_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * @param sampleId The value of the column 'SAMPLE_ID'. (basically NotNull if update: for the constraint)
+     * [set] (日本酒ID)NIHONSHU_ID: {PK, ID, NotNull, BIGINT(19)} <br>
+     * @param nihonshuId The value of the column 'NIHONSHU_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setSampleId(Long sampleId) {
-        registerModifiedProperty("sampleId");
-        _sampleId = sampleId;
+    public void setNihonshuId(Long nihonshuId) {
+        registerModifiedProperty("nihonshuId");
+        _nihonshuId = nihonshuId;
+    }
+
+    /**
+     * [get] (日本酒名)NIHONSHU_NAME: {NotNull, VARCHAR(255)} <br>
+     * @return The value of the column 'NIHONSHU_NAME'. (basically NotNull if selected: for the constraint)
+     */
+    public String getNihonshuName() {
+        checkSpecifiedProperty("nihonshuName");
+        return convertEmptyToNull(_nihonshuName);
+    }
+
+    /**
+     * [set] (日本酒名)NIHONSHU_NAME: {NotNull, VARCHAR(255)} <br>
+     * @param nihonshuName The value of the column 'NIHONSHU_NAME'. (basically NotNull if update: for the constraint)
+     */
+    public void setNihonshuName(String nihonshuName) {
+        registerModifiedProperty("nihonshuName");
+        _nihonshuName = nihonshuName;
     }
 }

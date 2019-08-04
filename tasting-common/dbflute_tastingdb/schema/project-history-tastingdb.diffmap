@@ -1,4 +1,19 @@
 map:{
+    ; 2019/08/04 18:52:41 = map:{
+        ; diffDate = 2019/08/04 18:52:41
+        ; diffAuthor = neginuki
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; nihonshu = map:{
+                ; tableName = nihonshu
+                ; diffType = ADD
+            }
+            ; sample = map:{
+                ; tableName = sample
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2019/08/04 18:33:08 = map:{
         ; diffDate = 2019/08/04 18:33:08
         ; tableCount = map:{

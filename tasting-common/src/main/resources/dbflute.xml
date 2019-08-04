@@ -13,5 +13,5 @@
 	<component name="commonColumnAutoSetupper" class="world.sake.dbflute.allcommon.ImplementedCommonColumnAutoSetupper"/>
 
 	<!-- The components of Behavior. -->
-	<component name="sampleBhv" class="world.sake.dbflute.exbhv.SampleBhv"/>
+	<component name="nihonshuBhv" class="world.sake.dbflute.exbhv.NihonshuBhv"/>
 </components>
