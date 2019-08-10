@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//DBFLUTE//DTD LastaDi 1.0//EN"
+    "http://dbflute.org/meta/lastadi10.dtd">
+<components namespace="jdbc-shochudb"> <!-- included by rdb.xml of Lasta Di for main schema -->
+    <include path="jta.xml"/> <!-- for e.g. transaction manager -->
+    <include path="lastaflute_assist.xml"/> <!-- for configuration provider -->
+
+    <component name="xaDataSource" class="org.lastaflute.db.dbcp.HookedXADataSource">
+            <property name="driverClassName">
+        provider.config().getShochudbJdbcDriver()
+            </property>
+            <property name="URL">
+        provider.config().getShochudbJdbcUrl()
+            </property>
+    <property name="user">provider.config().getShochudbJdbcUser()</property>
+    <property name="password">provider.config().getShochudbJdbcPassword()</property>
+    </component>
+
+    <component name="connectionPool" class="org.lastaflute.db.dbcp.HookedConnectionPool">
+            <!-- main option, required -->
+            <property name="maxPoolSize">provider.config().getShochudbJdbcConnectionPoolingSize()</property>
+
+            <!-- sub option, not required (setter not called if null) -->
+            <property name="minPoolSize">        provider.config().getOrDefault("shochudb.jdbc.connection.pooling.min.size", null)            </property>
+            <property name="maxWait">            provider.config().getOrDefault("shochudb.jdbc.connection.pooling.max.wait", null)            </property>
+            <property name="timeout">            provider.config().getOrDefault("shochudb.jdbc.connection.pooling.timeout", null)             </property>
+            <property name="suppressLocalTx">    provider.config().getOrDefault("shochudb.jdbc.connection.pooling.suppress.local.tx", null)   </property>
+            <property name="readOnly">           provider.config().getOrDefault("shochudb.jdbc.connection.pooling.read.only", null)           </property>
+            <property name="validationQuery">    provider.config().getOrDefault("shochudb.jdbc.connection.pooling.validation.query", null)    </property>
+            <property name="validationInterval"> provider.config().getOrDefault("shochudb.jdbc.connection.pooling.validation.interval", null) </property>
+    </component>
+
+    <component name="shochuDataSource" class="org.lastaflute.db.dbcp.HookedPooledDataSource"/>
+</components>

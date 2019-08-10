@@ -38,4 +38,9 @@ import org.dbflute.utflute.lastaflute.WebContainerTestCase;
  * @author jflute
  */
 public abstract class UnitAssertjdbeTestCase extends WebContainerTestCase {
+
+    @Override
+    protected String prepareConfigFile() {
+        return "test_app.xml";
+    }
 }

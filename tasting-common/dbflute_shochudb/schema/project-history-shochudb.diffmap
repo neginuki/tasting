@@ -1,0 +1,17 @@
+map:{
+    ; 2019/08/04 22:06:50 = map:{
+        ; diffDate = 2019/08/04 22:06:50
+        ; tableCount = map:{
+            ; next = 1
+            ; previous = 0
+        }
+        ; diffAuthor = neginuki
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; shochu = map:{
+                ; tableName = shochu
+                ; diffType = ADD
+            }
+        }
+    }
+}

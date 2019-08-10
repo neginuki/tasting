@@ -74,6 +74,21 @@ public interface TastingEnv {
     /** The key of the configuration. e.g. 10 */
     String JDBC_CONNECTION_POOLING_SIZE = "jdbc.connection.pooling.size";
 
+    /** The key of the configuration. e.g. com.mysql.jdbc.Driver */
+    String SHOCHUDB_JDBC_DRIVER = "shochudb.jdbc.driver";
+
+    /** The key of the configuration. e.g. jdbc:mysql://localhost:3306/shochudb */
+    String SHOCHUDB_JDBC_URL = "shochudb.jdbc.url";
+
+    /** The key of the configuration. e.g. shochudb */
+    String SHOCHUDB_JDBC_USER = "shochudb.jdbc.user";
+
+    /** The key of the configuration. e.g. shochudb */
+    String SHOCHUDB_JDBC_PASSWORD = "shochudb.jdbc.password";
+
+    /** The key of the configuration. e.g. 10 */
+    String SHOCHUDB_JDBC_CONNECTION_POOLING_SIZE = "shochudb.jdbc.connection.pooling.size";
+
     /**
      * Get the value of property as {@link String}.
      * @param propertyKey The key of the property. (NotNull)
@@ -222,7 +237,6 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.driver'. <br>
      * The value is, e.g. com.mysql.jdbc.Driver <br>
-     * comment: The driver FQCN to connect database for JDBC
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      */
     String getJdbcDriver();
@@ -230,7 +244,6 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.url'. <br>
      * The value is, e.g. jdbc:mysql://localhost:3306/tastingdb <br>
-     * comment: The URL of database connection for JDBC
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      */
     String getJdbcUrl();
@@ -238,7 +251,6 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.user'. <br>
      * The value is, e.g. tastingdb <br>
-     * comment: The user of database connection for JDBC
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      */
     String getJdbcUser();
@@ -246,7 +258,6 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.password'. <br>
      * The value is, e.g. tastingdb <br>
-     * comment: @Secure The password of database connection for JDBC
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      */
     String getJdbcPassword();
@@ -254,7 +265,6 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.connection.pooling.size'. <br>
      * The value is, e.g. 10 <br>
-     * comment: The (max) pooling size of connection pool
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      */
     String getJdbcConnectionPoolingSize();
@@ -262,11 +272,53 @@ public interface TastingEnv {
     /**
      * Get the value for the key 'jdbc.connection.pooling.size' as {@link Integer}. <br>
      * The value is, e.g. 10 <br>
-     * comment: The (max) pooling size of connection pool
      * @return The value of found property. (NotNull: if not found, exception but basically no way)
      * @throws NumberFormatException When the property is not integer.
      */
     Integer getJdbcConnectionPoolingSizeAsInteger();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.driver'. <br>
+     * The value is, e.g. com.mysql.jdbc.Driver <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     */
+    String getShochudbJdbcDriver();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.url'. <br>
+     * The value is, e.g. jdbc:mysql://localhost:3306/shochudb <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     */
+    String getShochudbJdbcUrl();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.user'. <br>
+     * The value is, e.g. shochudb <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     */
+    String getShochudbJdbcUser();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.password'. <br>
+     * The value is, e.g. shochudb <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     */
+    String getShochudbJdbcPassword();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.connection.pooling.size'. <br>
+     * The value is, e.g. 10 <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     */
+    String getShochudbJdbcConnectionPoolingSize();
+
+    /**
+     * Get the value for the key 'shochudb.jdbc.connection.pooling.size' as {@link Integer}. <br>
+     * The value is, e.g. 10 <br>
+     * @return The value of found property. (NotNull: if not found, exception but basically no way)
+     * @throws NumberFormatException When the property is not integer.
+     */
+    Integer getShochudbJdbcConnectionPoolingSizeAsInteger();
 
     /**
      * The simple implementation for configuration.
@@ -363,6 +415,30 @@ public interface TastingEnv {
 
         public Integer getJdbcConnectionPoolingSizeAsInteger() {
             return getAsInteger(TastingEnv.JDBC_CONNECTION_POOLING_SIZE);
+        }
+
+        public String getShochudbJdbcDriver() {
+            return get(TastingEnv.SHOCHUDB_JDBC_DRIVER);
+        }
+
+        public String getShochudbJdbcUrl() {
+            return get(TastingEnv.SHOCHUDB_JDBC_URL);
+        }
+
+        public String getShochudbJdbcUser() {
+            return get(TastingEnv.SHOCHUDB_JDBC_USER);
+        }
+
+        public String getShochudbJdbcPassword() {
+            return get(TastingEnv.SHOCHUDB_JDBC_PASSWORD);
+        }
+
+        public String getShochudbJdbcConnectionPoolingSize() {
+            return get(TastingEnv.SHOCHUDB_JDBC_CONNECTION_POOLING_SIZE);
+        }
+
+        public Integer getShochudbJdbcConnectionPoolingSizeAsInteger() {
+            return getAsInteger(TastingEnv.SHOCHUDB_JDBC_CONNECTION_POOLING_SIZE);
         }
     }
 }

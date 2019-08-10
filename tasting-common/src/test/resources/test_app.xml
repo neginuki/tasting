@@ -4,5 +4,6 @@
 <components>
 	<include path="convention.xml"/>
 	<include path="dbflute.xml"/>
+	<include path="dbflute-shochu.xml"/>
 	<include path="lastaflute.xml"/>
 </components>
