@@ -9,3 +9,5 @@ def subproject(subname) {
 rootProject.name = subproject('base')
 rootProject.projectDir = new File(settingsDir, rootProject.name)
 includeFlat subproject('common'), subproject('assertjdbe')
+
+includeBuild '../assertjdbe'

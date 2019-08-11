@@ -7,6 +7,7 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven {url 'https://neginuki.github.io/laspock'}
+        maven {url 'https://neginuki.github.io/assertjdbe'}
     }
 }
 
@@ -19,16 +20,17 @@ subprojects {
     apply plugin: 'groovy'
 
     tasks.withType(AbstractCompile) {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
+        sourceCompatibility = 11
+        targetCompatibility = 11
         options.encoding = 'UTF-8'
     }
 
     def projectName = (rootProject.name - '-base')
     if (project.name == "${projectName}-common") {
         dependencies {
+            compile "javax.annotation:javax.annotation-api:1.3.2"
             // Main Framework
-            compile "org.dbflute:dbflute-runtime:${dbfluteVersion}"
+            compile "org.dbflute:dbflute-runtime:${dbfluteVersion}"            
             runtime "mysql:mysql-connector-java:${mysqlVersion}"
             compile "org.lastaflute:lastaflute:${lastaVersion}"
 
@@ -59,6 +61,7 @@ subprojects {
         dependencies {
             compile "org.dbflute.tomcat:tomcat-boot:${tomcatBootVersion}"
             testCompile "world.sake:laspock:${laspockVersion}"
+            testCompile "world.sake:assertjdbe:0.0.1"
 
             // My Project
             compile project(":${projectName}-common")
