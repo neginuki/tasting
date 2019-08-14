@@ -61,7 +61,7 @@ subprojects {
         dependencies {
             compile "org.dbflute.tomcat:tomcat-boot:${tomcatBootVersion}"
             testCompile "world.sake:laspock:${laspockVersion}"
-            testCompile "world.sake:assertjdbe:0.0.1"
+            testCompile "world.sake:assertjdbe:0.0.2"
 
             // My Project
             compile project(":${projectName}-common")

@@ -3,6 +3,7 @@ package world.sake.tasting;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+import org.assertj.core.api.Assertions;
 import org.lastaflute.core.util.ContainerUtil;
 
 import world.sake.assertjdbe.AssertDBEquals;
@@ -15,11 +16,18 @@ public class AssertJDBETest extends UnitAssertjdbeTestCase {
 
     @Override
     public void setUp() throws Exception {
+        Assertions.assertThat("").isEqualTo(null);
+
         super.setUp();
         AssertDBEquals jdbe = new AssertDBEquals(ContainerUtil.searchComponentsAll(DataSource.class)) {
             @Override
             protected ExpectedWorkbook createExpectedWorkbook() {
-                return super.createExpectedWorkbook();
+                return new ExpectedWorkbook() {
+                    @Override
+                    protected String getSettingsSheetName() {
+                        return "#SETTINGS";
+                    }
+                };
             }
         };
         log(jdbe.toString());
@@ -32,12 +40,15 @@ public class AssertJDBETest extends UnitAssertjdbeTestCase {
     private ShochuBhv shochuBhv;
 
     public void test_xxx() throws Exception {
+
+        /*
         nihonshuBhv.selectList(cb -> {}).forEach(nihonshu -> {
             System.out.println(nihonshu.getNihonshuName());
         });
-
+        
         shochuBhv.selectList(cb -> {}).forEach(shochu -> {
             System.out.println(shochu.getShochuName());
         });
+        */
     }
 }
